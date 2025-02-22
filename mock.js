@@ -22,19 +22,17 @@ const fakeData = [...new Array(casual.integer(2, 6)).fill(0).map(() => ({
   name: casual.company_name,
 }))]
 
-const mocks = {
-  Query: () => ({
-    vmData: fakeData,
-    getVMStatusByID: (id) => fakeData.find(item => item.id === id),
-  }),
+const resolvers = {
+  Query: {
+    vmData: () => fakeData,
+    getVMStatusByID: () => ({ status: casual.boolean }),
+  },
 };
 
 
 const server = new ApolloServer({
-  schema: addMocksToSchema({
-    schema: makeExecutableSchema({ typeDefs }),
-    mocks,
-  }),
+  typeDefs,
+  resolvers,
 });
 
 const { url } = await startStandaloneServer(server, { listen: { port: 4000 } });
