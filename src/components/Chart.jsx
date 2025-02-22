@@ -6,13 +6,13 @@ const CHART_DATA = [
     { data: [51, 6, 49, 30] },
     { data: [15, 25, 30, 50] },
     { data: [60, 50, 15, 25] },
-  ]
+  ];
 
 const CHART_HEIGHT = 500;
 
-const CHART_X_AXIS = [{ data: ['Q1', 'Q2', 'Q3', 'Q4'], scaleType: 'band' }]
+const CHART_X_AXIS = [{ data: ['Q1', 'Q2', 'Q3', 'Q4'], scaleType: 'band' }];
 
-const CHART_MARGIN = { top: 10, bottom: 30, left: 40, right: 10 }
+const CHART_MARGIN = { top: 10, bottom: 30, left: 40, right: 10 };
 
 export const Chart = () => {
   return <BarChart

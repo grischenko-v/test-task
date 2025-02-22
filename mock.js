@@ -18,7 +18,7 @@ const fakeVMData = Array.from(Array(casual.integer(500, 2000)), () => ({
   id: casual.uuid,
   status: casual.boolean,
   name: casual.company_name,
-}))
+}));
 
 const resolvers = {
   Query: {

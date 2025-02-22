@@ -1,8 +1,8 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import './index.css'
+import './index.css';
 
 const DATA_URI = 'http://localhost:4000';
 
@@ -17,4 +17,4 @@ createRoot(document.getElementById('root')).render(
        <App />
     </ApolloProvider>
   </StrictMode>,
-)
+);

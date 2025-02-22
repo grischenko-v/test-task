@@ -1,5 +1,5 @@
-import { Suspense, lazy, useState, useTransition } from 'react'
-import { Button, CircularProgress } from '@mui/material'
+import { Suspense, lazy, useState, useTransition } from 'react';
+import { Button, CircularProgress } from '@mui/material';
 import messages from '../messages';
 
 const LazyChart = lazy(() => import('./Chart')
@@ -16,7 +16,7 @@ export const ChartShower = () => {
     startShowChartTransition(() => {
       setShowChart(true);
     });
-  }
+  };
 
   return (
     <>

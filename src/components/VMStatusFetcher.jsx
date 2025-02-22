@@ -1,4 +1,4 @@
-import { CircularProgress, Alert } from '@mui/material'
+import { CircularProgress, Alert } from '@mui/material';
 import { useQuery, gql } from '@apollo/client';
 import List from 'rc-virtual-list';
 import messages from '../messages';
