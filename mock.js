@@ -1,7 +1,5 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { addMocksToSchema } from '@graphql-tools/mock';
-import { makeExecutableSchema } from '@graphql-tools/schema';
 import casual from 'casual';
 
 const typeDefs = `#graphql
@@ -28,7 +26,6 @@ const resolvers = {
     getVMStatusByID: () => ({ status: casual.boolean }),
   },
 };
-
 
 const server = new ApolloServer({
   typeDefs,
