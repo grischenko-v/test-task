@@ -19,7 +19,8 @@ export const VMData = () => {
   const {
     loading: vmDataLoading,
     error: vmDataLoadError,
-    data: vmData } = useQuery(GET_VM_DATA);
+    data: vmData
+  } = useQuery(GET_VM_DATA);
 
   if(vmDataLoadError) {
     return <Alert severity="error">
