@@ -14,11 +14,11 @@ const typeDefs = `#graphql
   }
 `;
 
-const fakeVMData = [...new Array(casual.integer(500, 2000)).fill(0).map(() => ({
+const fakeVMData = Array.from(Array(casual.integer(500, 2000)), () => ({
   id: casual.uuid,
   status: casual.boolean,
   name: casual.company_name,
-}))]
+}))
 
 const resolvers = {
   Query: {
