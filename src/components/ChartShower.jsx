@@ -22,7 +22,7 @@ export const ChartShower = () => {
     <>
       <div>
         <Button variant="contained" onClick={loadChart}>
-          {messages.chartLoadButtonLabler()}
+          {messages.chartLoadButtonLabel()}
         </Button>
       </div>
       {showChart && <Suspense fallback={<CircularProgress/>}>
