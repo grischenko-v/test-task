@@ -56,7 +56,7 @@ const VMStatus = ({ id, name }) => {
 
   if(error) {
     return <Alert severity="error">
-      {messages.getServerStatusFailed()}
+      {name}: {messages.getServerStatusFailed()}
     </Alert>;
   }
   
