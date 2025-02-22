@@ -14,8 +14,7 @@ const CHART_X_AXIS = [{ data: ['Q1', 'Q2', 'Q3', 'Q4'], scaleType: 'band' }]
 
 const CHART_MARGIN = { top: 10, bottom: 30, left: 40, right: 10 }
 
-const Chart = () => {
-
+export const Chart = () => {
   return <BarChart
   series={CHART_DATA}
   height={CHART_HEIGHT}
@@ -23,5 +22,3 @@ const Chart = () => {
   margin={CHART_MARGIN}
 />
 }
-
-export default Chart;
