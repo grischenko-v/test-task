@@ -3,12 +3,12 @@ import messages from '../messages';
 import { useQuery, gql } from '@apollo/client';
 
 const GET_VM_DATA = gql`
-query VMData {
-  vmData {
-    id
-    name
+  query VMData {
+    vmData {
+      id
+      name
+    }
   }
-}
 `;
 
 export const VMData = () => {
