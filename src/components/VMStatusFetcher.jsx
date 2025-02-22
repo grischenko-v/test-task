@@ -2,35 +2,68 @@ import { CircularProgress, Alert } from '@mui/material'
 import messages from '../messages';
 import { useQuery, gql } from '@apollo/client';
 
+const GET_VM_DATA = gql`
+query VMData {
+    vmData {
+      id
+      name
+    }
+}
+`;
+
+export const VMData = () => {
+  const {
+    loading: vmDataLoading,
+    error: vmDataLoadError,
+    data: vmData } = useQuery(GET_VM_DATA);
+
+  if(vmDataLoadError) {
+    return <Alert severity="error">
+      {messages.getVMDataFailed()}
+    </Alert>;
+  }
+
+  if(vmDataLoading) {
+    return <CircularProgress/>;
+  }
+
+  return <div>
+    <h2>{messages.VMDataTitle()}</h2>
+    {vmData.vmData.map(item => 
+      <VMStatus key={item.id} name={item.name} id={item.id}/>
+    )}
+  </div>
+}
+
 const GET_VM_STATUS = gql`
-  query GetStatus {
-      vmData {
+  query Status($id: String!) {
+      getVMStatusByID(id: $id) {
         status
-        id
-        name
       }
   }
 `;
 
-export const VMStatusFetcher = () => {
-  const { loading, error, data } = useQuery(GET_VM_STATUS, { pollInterval: 1000 });
+const VMStatus = ({ id, name }) => {
+  const {
+    loading,
+    error,
+    data: status } = useQuery(GET_VM_STATUS, {
+      variables: { id },
+      pollInterval: 1000,
+    }
+  );
 
   if(error) {
     return <Alert severity="error">
       {messages.getServerStatusFailed()}
     </Alert>;
   }
-
+  
   if(loading) {
     return <CircularProgress/>;
   }
 
-  return <div>
-    <h2>{messages.VMDataTitle()}</h2>
-    {data.vmData.map(item => 
-      <Alert key={item.id} severity={`${item.status ? 'success' : 'error'}`}>
-        {item.name}: {messages.serverStatusLabel(item.status)}
-      </Alert>
-    )}   
-  </div>
+  return <Alert severity={`${status ? 'success' : 'error'}`}>
+      {name}: {messages.serverStatusLabel(status)}
+    </Alert>
 }

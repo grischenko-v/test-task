@@ -11,18 +11,21 @@ const typeDefs = `#graphql
     name: String
   }
   type Query {
-    status: Boolean
+    getVMStatusByID(id: String!): vmData!
     vmData: [vmData!]!
   }
 `;
 
+const fakeData = [...new Array(casual.integer(2, 6)).fill(0).map(() => ({
+  id: casual.uuid,
+  status: casual.boolean,
+  name: casual.company_name,
+}))]
+
 const mocks = {
   Query: () => ({
-    vmData: [...new Array(casual.integer(2, 6)).fill(0).map(() => ({
-      id: casual.uuid,
-      status: casual.boolean,
-      name: casual.company_name,
-    }))],
+    vmData: fakeData,
+    getVMStatusByID: (id) => fakeData.find(item => item.id === id),
   }),
 };
 
