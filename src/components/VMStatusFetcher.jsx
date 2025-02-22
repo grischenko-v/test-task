@@ -23,7 +23,7 @@ export const VMData = () => {
   } = useQuery(GET_VM_DATA);
 
   if(vmDataLoadError) {
-    return <Alert severity="error">
+    return <Alert severity='error'>
       {messages.getVMDataFailed()}
     </Alert>;
   }
@@ -37,7 +37,7 @@ export const VMData = () => {
       data={vmData.vmData}
       height={VM_LIST_HEIGHT}
       itemHeight={VM_LIST_ITEM_HEIGHT}
-      itemKey="id">
+      itemKey='id'>
         {item => <VMStatus key={item.id} name={item.name} id={item.id}/>}
     </List>
   </>
@@ -63,7 +63,7 @@ const VMStatus = ({ id, name }) => {
   );
 
   if(error) {
-    return <Alert severity="error">
+    return <Alert severity='error'>
       {name}: {messages.getServerStatusFailed()}
     </Alert>;
   }

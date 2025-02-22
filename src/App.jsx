@@ -1,7 +1,7 @@
 import './App.css';
 import { VMData } from './components/VMStatusFetcher';
 import { ChartShower } from './components/ChartShower';
-import messages from "./messages";
+import messages from './messages';
 
 function App() {
   return (

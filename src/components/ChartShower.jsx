@@ -21,7 +21,7 @@ export const ChartShower = () => {
   return (
     <>
       <div>
-        <Button variant="contained" onClick={loadChart} disabled={showChart}>
+        <Button variant='contained' onClick={loadChart} disabled={showChart}>
           {messages.chartLoadButtonLabel()}
         </Button>
       </div>
