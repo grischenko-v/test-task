@@ -28,7 +28,7 @@ export const VMStatusFetcher = () => {
     <h2>{messages.VMDataTitle()}</h2>
     {data.vmData.map(item => 
       <Alert key={item.id} severity={`${item.status ? 'success' : 'error'}`}>
-        {messages.serverStatusLabel(data.status)}
+        {messages.serverStatusLabel(item.status)}
       </Alert>
     )}   
   </div>
