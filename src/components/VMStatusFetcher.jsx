@@ -12,6 +12,9 @@ const GET_VM_DATA = gql`
   }
 `;
 
+const VM_LIST_HEIGHT = 540;
+const VM_LIST_ITEM_HEIGHT = 36;
+
 export const VMData = () => {
   const {
     loading: vmDataLoading,
@@ -30,7 +33,7 @@ export const VMData = () => {
 
   return <div className='task2'>
     <h2>{messages.VMDataTitle()}</h2>
-    <List data={vmData.vmData} height={536} itemHeight={48} itemKey="id">
+    <List data={vmData.vmData} height={VM_LIST_HEIGHT} itemHeight={VM_LIST_ITEM_HEIGHT} itemKey="id">
       {item => <VMStatus key={item.id} name={item.name} id={item.id}/>}
     </List>
   </div>
