@@ -4,10 +4,10 @@ import { useQuery, gql } from '@apollo/client';
 
 const GET_VM_DATA = gql`
 query VMData {
-    vmData {
-      id
-      name
-    }
+  vmData {
+    id
+    name
+  }
 }
 `;
 
@@ -37,9 +37,9 @@ export const VMData = () => {
 
 const GET_VM_STATUS = gql`
   query Status($id: String!) {
-      getVMStatusByID(id: $id) {
-        status
-      }
+    getVMStatusByID(id: $id) {
+      status
+    }
   }
 `;
 
@@ -48,7 +48,7 @@ const VMStatus = ({ id, name }) => {
     loading,
     error,
     data
-   } = useQuery(GET_VM_STATUS, {
+  } = useQuery(GET_VM_STATUS, {
       variables: { id },
       pollInterval: 1000,
     }
