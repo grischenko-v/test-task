@@ -14,7 +14,7 @@ const typeDefs = `#graphql
   }
 `;
 
-const fakeData = [...new Array(casual.integer(500, 2000)).fill(0).map(() => ({
+const fakeVMData = [...new Array(casual.integer(500, 2000)).fill(0).map(() => ({
   id: casual.uuid,
   status: casual.boolean,
   name: casual.company_name,
@@ -22,7 +22,7 @@ const fakeData = [...new Array(casual.integer(500, 2000)).fill(0).map(() => ({
 
 const resolvers = {
   Query: {
-    vmData: () => fakeData,
+    vmData: () => fakeVMData,
     getVMStatusByID: () => ({ status: casual.boolean }),
   },
 };
