@@ -7,6 +7,7 @@ const GET_VM_STATUS = gql`
       vmData {
         status
         id
+        name
       }
   }
 `;
@@ -16,7 +17,7 @@ export const VMStatusFetcher = () => {
 
   if(error) {
     return <Alert severity="error">
-      {messages.getServerStatusFail()}
+      {messages.getServerStatusFailed()}
     </Alert>;
   }
 
@@ -28,7 +29,7 @@ export const VMStatusFetcher = () => {
     <h2>{messages.VMDataTitle()}</h2>
     {data.vmData.map(item => 
       <Alert key={item.id} severity={`${item.status ? 'success' : 'error'}`}>
-        {messages.serverStatusLabel(item.status)}
+        {item.name}: {messages.serverStatusLabel(item.status)}
       </Alert>
     )}   
   </div>

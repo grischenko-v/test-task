@@ -8,6 +8,7 @@ const typeDefs = `#graphql
   type vmData {
     id: ID
     status: Boolean
+    name: String
   }
   type Query {
     status: Boolean
@@ -17,7 +18,11 @@ const typeDefs = `#graphql
 
 const mocks = {
   Query: () => ({
-    vmData: [...new Array(casual.integer(2, 6)).fill(0).map(() => ({id: casual.uuid, status: casual.status}))],
+    vmData: [...new Array(casual.integer(2, 6)).fill(0).map(() => ({
+      id: casual.uuid,
+      status: casual.boolean,
+      name: casual.company_name,
+    }))],
   }),
 };
 
