@@ -47,7 +47,8 @@ const VMStatus = ({ id, name }) => {
   const {
     loading,
     error,
-    data: status } = useQuery(GET_VM_STATUS, {
+    data
+   } = useQuery(GET_VM_STATUS, {
       variables: { id },
       pollInterval: 1000,
     }
@@ -63,7 +64,7 @@ const VMStatus = ({ id, name }) => {
     return <CircularProgress/>;
   }
 
-  return <Alert severity={`${status ? 'success' : 'error'}`}>
-      {name}: {messages.serverStatusLabel(status)}
+  return <Alert severity={`${data.getVMStatusByID.status ? 'success' : 'error'}`}>
+      {name}: {messages.serverStatusLabel(data.getVMStatusByID.status)}
     </Alert>
 }
