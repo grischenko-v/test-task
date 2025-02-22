@@ -16,9 +16,8 @@ const CHART_MARGIN = { top: 10, bottom: 30, left: 40, right: 10 }
 
 export const Chart = () => {
   return <BarChart
-  series={CHART_DATA}
-  height={CHART_HEIGHT}
-  xAxis={CHART_X_AXIS}
-  margin={CHART_MARGIN}
-/>
+    series={CHART_DATA}
+    height={CHART_HEIGHT}
+    xAxis={CHART_X_AXIS}
+    margin={CHART_MARGIN}/>
 }
