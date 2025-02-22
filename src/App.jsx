@@ -1,13 +1,13 @@
 import './App.css'
-import { StatusFetcher } from './components/StatusFetcher';
+import { VMStatusFetcher } from './components/VMStatusFetcher';
 import { ChartShower } from './components/ChartShower';
 
 function App() {
   return (
-    <>
-      <StatusFetcher/>
+    <div className='wrapper'>
       <ChartShower/>
-    </>
+      <VMStatusFetcher/>
+    </div>
   )
 }
 

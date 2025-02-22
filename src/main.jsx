@@ -4,9 +4,10 @@ import App from './App.jsx'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import './index.css'
 
+const DATA_URI = 'http://localhost:4000';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000',
+  uri: DATA_URI,
   cache: new InMemoryCache(),
 });
 

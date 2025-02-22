@@ -3,10 +3,10 @@ import { Button, CircularProgress } from '@mui/material'
 import messages from '../messages';
 
 const LazyChart = lazy(() => import('./Chart')
-.then(module => {
-    return { default: module.Chart };
-    }),
-);
+    .then(module => {
+        return { default: module.Chart };
+        }),
+    );
 
 export const ChartShower = () => {
   const [, startShowChartTransition] = useTransition();
@@ -19,15 +19,16 @@ export const ChartShower = () => {
   }
 
   return (
-    <>
+    <div>
+      <h2>{messages.showChartTitle()}</h2>
       <div>
-        <Button variant="contained" onClick={loadChart}>
+        <Button variant="contained" onClick={loadChart} disabled={showChart}>
           {messages.chartLoadButtonLabel()}
         </Button>
       </div>
       {showChart && <Suspense fallback={<CircularProgress/>}>
           <LazyChart/>
       </Suspense>}
-    </>
+    </div>
   )
 }
