@@ -19,6 +19,7 @@
     "@mui/x-charts": "^7.27.0",
     "casual": "^1.6.2",
     "graphql": "^16.10.0",
+    "rc-virtual-list": "^3.18.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

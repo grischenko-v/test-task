@@ -19,7 +19,7 @@ export const ChartShower = () => {
   }
 
   return (
-    <div>
+    <div className='task1'>
       <h2>{messages.showChartTitle()}</h2>
       <div>
         <Button variant="contained" onClick={loadChart} disabled={showChart}>

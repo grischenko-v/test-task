@@ -1,6 +1,7 @@
 import { CircularProgress, Alert } from '@mui/material'
-import messages from '../messages';
 import { useQuery, gql } from '@apollo/client';
+import List from 'rc-virtual-list';
+import messages from '../messages';
 
 const GET_VM_DATA = gql`
   query VMData {
@@ -27,11 +28,11 @@ export const VMData = () => {
     return <CircularProgress/>;
   }
 
-  return <div>
+  return <div className='task2'>
     <h2>{messages.VMDataTitle()}</h2>
-    {vmData.vmData.map(item => 
-      <VMStatus key={item.id} name={item.name} id={item.id}/>
-    )}
+    <List data={vmData.vmData} height={536} itemHeight={48} itemKey="id">
+      {item => <VMStatus key={item.id} name={item.name} id={item.id}/>}
+    </List>
   </div>
 }
 
