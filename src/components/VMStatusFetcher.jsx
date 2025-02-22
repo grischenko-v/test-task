@@ -32,8 +32,7 @@ export const VMData = () => {
     return <CircularProgress/>;
   }
 
-  return <div className='task2'>
-    <h2>{messages.VMDataTitle()}</h2>
+  return <>
     <List
       data={vmData.vmData}
       height={VM_LIST_HEIGHT}
@@ -41,7 +40,7 @@ export const VMData = () => {
       itemKey="id">
         {item => <VMStatus key={item.id} name={item.name} id={item.id}/>}
     </List>
-  </div>
+  </>
 }
 
 const GET_VM_STATUS = gql`

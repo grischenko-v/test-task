@@ -19,8 +19,7 @@ export const ChartShower = () => {
   }
 
   return (
-    <div className='task1'>
-      <h2>{messages.showChartTitle()}</h2>
+    <>
       <div>
         <Button variant="contained" onClick={loadChart} disabled={showChart}>
           {messages.chartLoadButtonLabel()}
@@ -29,6 +28,6 @@ export const ChartShower = () => {
       {showChart && <Suspense fallback={<CircularProgress/>}>
           <LazyChart/>
       </Suspense>}
-    </div>
+    </>
   )
 }
